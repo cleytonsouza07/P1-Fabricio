@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Form</title>
+</head>
+<body>
+    <h1>Formulário de Usuário</h1>
+    <form method="POST" action="{{ url_for('add_user') if not user else url_for('edit_user', username=user.username) }}">
+        <label for="username">Usuário:</label><br>
+        <input type="text" id="username" name="username" value="{{ user.username if user else '' }}"><br>
+        <label for="password">Senha:</label><br>
+        <input type="password" id="password" name="password" value="{{ user.password if user else '' }}"><br><br>
+        <input type="submit" value="Salvar">
+    </form>
+</body>
+</html>
